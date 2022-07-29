@@ -55,7 +55,7 @@ class ChangeIconModule(reactContext: ReactApplicationContext, private val packag
           if (activity == null) {
             return
           }
-          classesToKill.forEach {
+          classesToKill.filter{it != componentClass}.forEach {
             activity.packageManager.setComponentEnabledSetting(
                 ComponentName(packageName, it),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
